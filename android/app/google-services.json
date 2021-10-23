@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "374358798332",
+    "project_id": "netap-cb420",
+    "storage_bucket": "netap-cb420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374358798332:android:179d0991a6f22f5d610c79",
+        "android_client_info": {
+          "package_name": "com.example.flutter_netap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374358798332-4pfcdc2tctt7h6g53smgdblqpdfscgll.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV1fwEIqhyTPr2_Br3N9NARn4XWRL1cE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374358798332-4pfcdc2tctt7h6g53smgdblqpdfscgll.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "374358798332-25l2n5a0g6u73494hj12dbfp6obrqat4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterRegistration"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

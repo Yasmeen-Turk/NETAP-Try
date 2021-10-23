@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>374358798332-u06n7k7anfc201mk61a7kr6m9um7dlae.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.374358798332-u06n7k7anfc201mk61a7kr6m9um7dlae</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAZ2dEZP7kB4px4rMmqX4bULOCBPVmCTDg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>374358798332</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterNetap</string>
+	<key>PROJECT_ID</key>
+	<string>netap-cb420</string>
+	<key>STORAGE_BUCKET</key>
+	<string>netap-cb420.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:374358798332:ios:4157c7e1342fcb61610c79</string>
+</dict>
+</plist>
