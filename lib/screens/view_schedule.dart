@@ -1,6 +1,8 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_netap/backend/server.dart';
+import 'package:flutter/scheduler.dart';
 //import 'package:flutter_netap/page/checkin_page.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'instructor_home.dart';
@@ -32,7 +34,6 @@ List<Appointment> getAppointments() {
       DateTime(today.year, today.month, today.day, 9, 0, 0);
   final DateTime endTime = startTime.add(const Duration(hours: 2));
 
-//firebase
   meetings.add(Appointment(
       startTime: startTime,
       endTime: endTime,
@@ -50,26 +51,52 @@ class MeetingDataSource extends CalendarDataSource {
   }
 }
 
-// @override
-// Widget build(BuildContext context) {
-//   return StreamBuilder(
-//     stream: FirebaseFirestore.instance.collection('mySched').snapshots(),
-//     builder: (BuildContext context,
-//         AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-//       if (!snapshot.hasData) return Text('Loading...');
-//       switch (snapshot.connectionState) {
-//         case ConnectionState.waiting:
-//           return new Text('Loading ...');
-//         default:
-//           return ListView(
-//             children: snapshot.data!.docs
-//                 .map((DocumentSnapshot) => new ListTile())
-//                 .toList(),
-//           );
-//       }
-//     },
-//   );
-// }
+class LoadDataFromFirebase extends StatefulWidget {
+  @override
+  _LoadDataFromFirebaseState createState() => _LoadDataFromFirebaseState();
+}
+
+class _LoadDataFromFirebaseState extends State<LoadDataFromFirebase> {
+  List<Color> _colorCollection = <Color>[];
+  MeetingDataSource? events;
+  final List<String> options = <String>["Update", "Delete"];
+  final databaseReference = FirebaseFirestore.instance;
+  @override
+  void initState() {
+    _initializeEventColor();
+    getDataFromFirestore().then((results) {
+      SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+        setState(() {});
+      });
+    });
+    // TODO: implement initState
+    super.initState();
+  }
+
+  Future<void> getDataFromFirestore() async {
+    var snapshotsValue = await databaseReference.collection("mySched").get();
+    final Random random = new Random();
+    List<Meeting> list = snapshotsValue.docs
+        .map((e) => Meeting(
+            eventName: e.data()['Subject'],
+            from:
+                DateFormat('dd/MM/yyyy HH:mm:ss').parse(e.data()['StartTime']),
+            to: DateFormat('dd/MM/yyyy HH:mm:ss').parse(e.data()['EndTime']),
+            background: _colorCollection[random.nextInt(9)],
+            isAllDay: false))
+        .toList();
+
+    setState(() {
+      events = MeetingDataSource(list);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 /*
 class ViewSheduleState extends State<ViewSchedulePage> {
   @override

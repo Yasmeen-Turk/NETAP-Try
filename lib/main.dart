@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_netap/page/home_page.dart';
-import 'package:flutter_netap/page/location.dart';
-import 'package:flutter_netap/screens/instructor_home.dart';
+import 'package:flutter_netap/provider/schedualProvider.dart';
 import 'package:flutter_netap/screens/usertype.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +17,7 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => CheckProvider()),
+      ChangeNotifierProvider(create: (_) => SchedualProvider()),
     ],
     child: MyApp(),
   ));
