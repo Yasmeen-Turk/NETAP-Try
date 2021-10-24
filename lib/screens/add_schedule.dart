@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_netap/backend/server.dart';
 import 'package:flutter_netap/model/saveschedulemodel.dart';
+import 'package:flutter_netap/provider/schedualProvider.dart';
 import 'package:flutter_netap/widgets/custom_text_field.dart';
 import 'package:flutter_netap/widgets/days_widget.dart';
 import 'package:flutter_netap/screens/instructor_home.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 class AddSchedule extends StatefulWidget {
   const AddSchedule({Key? key}) : super(key: key);
@@ -366,6 +368,8 @@ class _AddScheduleState extends State<AddSchedule> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ElevatedButton(
                     onPressed: saveForm,
+                    // Provider.of<SchedualProvider>(context, listen: false)
+                    //     .setSchedualInFirestore()
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(double.infinity, 50),
                       primary: Color.fromRGBO(0, 132, 188, 1),
